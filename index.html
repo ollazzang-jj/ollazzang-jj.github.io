@@ -175,4 +175,120 @@
 
     .box h3 {
       font-size: 36px;
-      margin-botto
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      background: rgb(32, 91, 173);
+      color: #fff;
+      padding: 12px 36px;
+      border-radius: 99px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .box-1 { grid-column: 3 / span 3; }
+    .box-2 { grid-column: 2 / span 3; }
+    .box-3 { grid-column: 3 / span 3; }
+    .box-4 { grid-column: 1 / span 3; }
+
+    .image-1 { grid-column: 1 / span 2; }
+    .image-2 { grid-column: 6 / span 1; }
+    .image-3 { grid-column: 1 / span 2; }
+
+    .bottom {
+      height: 60vh;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .profile-image {
+        margin-top: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <a href="#">Beauty</a>
+    <a href="#">Academy</a>
+    <a href="#">Store</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- HERO / PROFILE -->
+  <header>
+    <div class="hero-text">
+      <h1>OLLA<br>Premium Beauty</h1>
+      <p>
+        자연스러움의 기준을 만드는<br>
+        프리미엄 반영구 & 아카데미 브랜드
+      </p>
+    </div>
+
+    <div class="profile-image">
+      <img src="images/립타투.jpg" alt="OLLA Profile Image">
+    </div>
+  </header>
+
+  <!-- SCROLL VISUAL -->
+  <section id="scroll-section">
+    <svg class="line-svg" preserveAspectRatio="xMidYMin slice" viewBox="-480 0 2300 2241">
+      <path
+        class="anim-overview-stroke"
+        stroke="#C7DBF4"
+        stroke-width="160"
+        opacity=".45"
+        d="M-841 100H584c124 0 225 101 225 225v0c0 124-101 225-225 225h-95a281 281 0 00-281 281v0c0 155 125 281 281 281h442c167 0 304 136 304 304v0c0 168-137 304-304 304H795a439 439 0 00-439 439v82"
+      />
+    </svg>
+
+    <div class="container">
+      <h2>OLLA SYSTEM</h2>
+
+      <div class="layout-container">
+        <div class="box box-1">
+          <h3>Beauty</h3>
+          <p>립 · 헤어라인 · 두피 프리미엄 시술</p>
+          <a class="btn">Explore</a>
+        </div>
+
+        <img class="image-1" src="https://assets.codepen.io/732/matthew-deltoro-LdFvvpjnB2A-unsplash-800.jpg">
+
+        <div class="box box-2">
+          <h3>Academy</h3>
+          <p>실전 중심 반영구 & SMP 교육</p>
+          <a class="btn">Learn</a>
+        </div>
+
+        <img class="image-2" src="https://assets.codepen.io/732/viviana-rishe-6fNZ7QtXiCs-unsplash-800.jpg">
+
+        <div class="box box-3">
+          <h3>Store</h3>
+          <p>전문가가 만든 시술 전용 제품</p>
+          <a class="btn">Shop</a>
+        </div>
+
+        <img class="image-3" src="https://assets.codepen.io/732/colton-sturgeon-FiCPutl_aog-unsplash-800.jpg">
+
+        <div class="box box-4">
+          <h3>Global</h3>
+          <p>OLLA 글로벌 뷰티 시스템</p>
+          <a class="btn">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom"></section>
+
+</body>
+</html>
