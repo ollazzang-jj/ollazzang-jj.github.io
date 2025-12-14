@@ -1,17 +1,88 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OLLA Beauty</title>
+  <title>Superellipse Demo</title>
 
   <style>
-    /* ===== Background ===== */
+    /* ===== Superellipse Shapes ===== */
+    .box:nth-child(1) {
+      corner-shape: superellipse(0);
+    }
+    .box:nth-child(2) {
+      corner-shape: superellipse(2);
+    }
+    .box:nth-child(3) {
+      corner-shape: superellipse(-1);
+    }
+
+    /* ===== Base Layer ===== */
     html {
       background-color: #262626;
       background-position: top center;
       background-repeat: no-repeat;
       background-image:
         radial-gradient(50% 50% at top center, rgb(0 0 0 / 0.66), #262626),
-        linear-gradient(180deg, #ffffff, #262626);
-      background-size: 120% 2000px, 100% 2000
+        linear-gradient(180deg, #fff, #262626);
+      background-size: 120% 2000px, 100% 2000px;
+    }
+
+    body {
+      margin: 0;
+      color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: grid;
+      height: 100dvh;
+      place-items: center;
+    }
+
+    .boxes {
+      display: flex;
+      gap: 1.35rem;
+    }
+
+    .box {
+      aspect-ratio: 1;
+      background-color: hsl(25 100% 45%);
+      border-radius: 35px;
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      padding: 1rem;
+      text-shadow: 0 1px 0 #000;
+    }
+
+    h2 {
+      display: none;
+      font-weight: 500;
+    }
+
+    /* ===== Fallback ===== */
+    @supports not (corner-shape: superellipse(0)) {
+      .boxes {
+        display: none;
+      }
+      h2 {
+        display: block;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="boxes">
+    <div class="box">
+      <code>superellipse(0)</code>
+    </div>
+    <div class="box">
+      <code>superellipse(2)</code>
+    </div>
+    <div class="box">
+      <code>superellipse(-1)</code>
+    </div>
+  </div>
+
+  <h2>Your browser does not support the <code>superellipse()</code> function.</h2>
+</body>
+</html>
