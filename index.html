@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OLLA Beauty</title>
+
+  <style>
+    /* =========================
+       SCROLL ANIMATION DESIGN
+    ========================== */
+    @keyframes stroke {
+      from { stroke-dashoffset: 5414.29; }
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes colorFade {
+      to { background-color: rgb(178, 203, 235); }
+    }
+
+    @keyframes reveal {
+      from {
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; scale: 0.2; }
+    }
+
+    @keyframes revealText {
+      from { clip-path: polygon(0 0, 0% 0, 0% 100%, 0 100%); }
+    }
+
+    html {
+      background-color: rgb(32, 91, 173);
+      animation: colorFade linear forwards;
+      animation-timeline: scroll();
+    }
+
+    body {
+      margin: 0;
+      font-family: "Montserrat", sans-serif;
+      color: #fff;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: 10% 60%;
+    }
+
+    /* =========================
+       OLLA BASIC LAYOUT
+    ========================== */
+    header {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    nav {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* =========================
+       SCROLL SECTION
+    ========================== */
+    #scroll-section {
+      display: grid;
+      position: relative;
+      min-height: 2700px;
+      container: inline-size;
+    }
+
+    .line-svg {
+      grid-row: 1;
+      grid-column: 1;
+      height: calc(100% - 10rem);
+      z-index: 1;
+    }
+
+    .anim-overview-stroke {
+      stroke-dasharray: 5414.29;
+      stroke-dashoffset: 5414.29;
+      animation: stroke linear forwards;
+      animation-timeline: scroll();
+      animation-range: -10% 85%;
+    }
+
+    .container {
+      grid-column: 1;
+      grid-row: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 2;
+      padding: 6rem 2rem;
+    }
+
+    h2 {
+      font-size: 56px;
+      font-weight: 900;
+      width: 60%;
+      text-align: right;
+      animation: revealText linear both;
+      animation-timeline: view();
+      animation-range: 25% 60%;
+    }
+
+    .layout-container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4rem;
+      padding-top: 6rem;
+    }
+
+    .box {
+      background: white;
+      color: #222;
+      padding: 3rem;
+      animation: scaleIn linear both;
+      animation-timeline: view();
+      animation-range: 0% 40vh;
+    }
+
+    .box h3 {
+      font-size: 36px;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      background: rgb(32, 91, 173);
+      color: white;
+      padding: 12px 36px;
+      border-radius: 99px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .box-1 { grid-column: 3 / span 3; }
+    .box-2 { grid-column: 2 / span 3; }
+    .box-3 { grid-column: 3 / span 3; }
+    .box-4 { grid-column: 1 / span 3; }
+
+    .image-1 { grid-column: 1 / span 2; }
+    .image-2 { grid-column: 6 / span 1; }
+    .image-3 { grid-column: 1 / span 2; }
+
+    section.bottom {
+      height: 60vh;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#about">OLLA Beauty</a>
+    <a href="#academy">Academy</a>
+    <a href="#store">Store</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <h1>OLLA<br>Premium Beauty Standard</h1>
+  </header>
+
+  <!-- SCROLL VISUAL SECTION -->
+  <section id="scroll-section">
+    <svg class="line-svg" preserveAspectRatio="xMidYMin slice" viewBox="-480 0 2300 2241">
+      <path
+        class="anim-overview-stroke"
+        stroke="#C7DBF4"
+        stroke-width="160"
+        opacity=".45"
+        d="M-841 100H584c124 0 225 101 225 225v0c0 124-101 225-225 225h-95a281 281 0 00-281 281v0c0 155 125 281 281 281h442c167 0 304 136 304 304v0c0 168-137 304-304 304H795a439 439 0 00-439 439v82"
+      />
+    </svg>
+
+    <div class="container">
+      <h2>OLLA Beauty System</h2>
+
+      <div class="layout-container">
+        <div class="box box-1">
+          <h3>Beauty</h3>
+          <p>프리미엄 헤어라인 · 두피 · 눈썹 시술</p>
+          <a class="btn">Explore</a>
+        </div>
+
+        <img class="image-1" src="https://assets.codepen.io/732/matthew-deltoro-LdFvvpjnB2A-unsplash-800.jpg">
+
+        <div class="box box-2">
+          <h3>Academy</h3>
+          <p>실전 중심 SMP · 반영구 교육 시스템</p>
+          <a class="btn">Learn</a>
+        </div>
+
+        <img class="image-2" src="https://assets.codepen.io/732/viviana-rishe-6fNZ7QtXiCs-unsplash-800.jpg">
+
+        <div class="box box-3">
+          <h3>Store</h3>
+          <p>시술자가 만든 전문가용 제품</p>
+          <a class="btn">Shop</a>
+        </div>
+
+        <img class="image-3" src="https://assets.codepen.io/732/colton-sturgeon-FiCPutl_aog-unsplash-800.jpg">
+
+        <div class="box box-4">
+          <h3>Global</h3>
+          <p>전 세계로 확장되는 OLLA 시스템</p>
+          <a class="btn">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom"></section>
+
+</body>
+</html>
