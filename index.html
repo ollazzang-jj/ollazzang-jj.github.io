@@ -1,88 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Superellipse Demo</title>
+  <title>OLLA Beauty</title>
 
   <style>
-    /* ===== Superellipse Shapes ===== */
-    .box:nth-child(1) {
-      corner-shape: superellipse(0);
-    }
-    .box:nth-child(2) {
-      corner-shape: superellipse(2);
-    }
-    .box:nth-child(3) {
-      corner-shape: superellipse(-1);
+    @keyframes stroke {
+      from { stroke-dashoffset: 5414.29; }
+      to { stroke-dashoffset: 0; }
     }
 
-    /* ===== Base Layer ===== */
+    @keyframes colorFade {
+      to { background-color: rgb(178, 203, 235); }
+    }
+
+    @keyframes reveal {
+      from {
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+        opacity: 0;
+      }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; scale: 0.2; }
+    }
+
     html {
-      background-color: #262626;
-      background-position: top center;
-      background-repeat: no-repeat;
-      background-image:
-        radial-gradient(50% 50% at top center, rgb(0 0 0 / 0.66), #262626),
-        linear-gradient(180deg, #fff, #262626);
-      background-size: 120% 2000px, 100% 2000px;
+      background-color: rgb(32, 91, 173);
+      animation: colorFade linear forwards;
+      animation-timeline: scroll();
     }
 
     body {
       margin: 0;
-      color: white;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      display: grid;
-      height: 100dvh;
-      place-items: center;
+      font-family: "Montserrat", sans-serif;
+      color: #fff;
     }
 
-    .boxes {
+    img {
+      max-width: 100%;
+      display: block;
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: 10% 60%;
+    }
+
+    nav {
+      position: fixed;
+      top: 24px;
+      right: 32px;
+      z-index: 100;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    header {
+      height: 100vh;
       display: flex;
-      gap: 1.35rem;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .box {
-      aspect-ratio: 1;
-      background-color: hsl(25 100% 45%);
-      border-radius: 35px;
+    header h1 {
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: .04em;
+    }
+
+    /* ===== Beauty Section ===== */
+    #beauty {
+      padding: 10rem 0;
+      background: #fff;
+      color: #222;
+    }
+
+    .beauty-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
-      place-items: center;
-      font-size: 1rem;
-      padding: 1rem;
-      text-shadow: 0 1px 0 #000;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: 0 2rem;
     }
 
-    h2 {
-      display: none;
-      font-weight: 500;
+    .beauty-text h2 {
+      font-size: 48px;
+      margin-bottom: 1rem;
     }
 
-    /* ===== Fallback ===== */
-    @supports not (corner-shape: superellipse(0)) {
-      .boxes {
-        display: none;
-      }
-      h2 {
-        display: block;
+    .beauty-text p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .beauty-image {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,.25);
+      animation: scaleIn linear both;
+      animation-timeline: view();
+      animation-range: 0% 40vh;
+    }
+
+    .beauty-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 900px) {
+      .beauty-container {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="boxes">
-    <div class="box">
-      <code>superellipse(0)</code>
-    </div>
-    <div class="box">
-      <code>superellipse(2)</code>
-    </div>
-    <div class="box">
-      <code>superellipse(-1)</code>
-    </div>
-  </div>
 
-  <h2>Your browser does not support the <code>superellipse()</code> function.</h2>
+  <nav>
+    <a href="#beauty">Beauty</a>
+    <a href="#">Academy</a>
+    <a href="#">Store</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <header>
+    <h1>OLLA<br>Premium Beauty</h1>
+  </header>
+
+  <!-- Beauty Section -->
+  <section id="beauty">
+    <div class="beauty-container">
+      <div class="beauty-text">
+        <h2>Beauty</h2>
+        <p>
+          립 타투, 헤어라인, 두피 시술까지  
+          자연스러움과 밀도를 설계하는  
+          OLLA만의 프리미엄 뷰티 시스템
+        </p>
+      </div>
+
+      <div class="beauty-image">
+        <img src="images/립타투.jpg" alt="OLLA Lip Tattoo">
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
